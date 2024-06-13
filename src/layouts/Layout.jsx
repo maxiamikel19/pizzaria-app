@@ -1,14 +1,16 @@
 import { Outlet } from "react-router-dom"
 import { Link } from "react-router-dom"
+import Sidebar from "../components/Sidebar"
+import Resume from "../components/Resume"
 
 export default function Layout(){
     return (
-        <div>
-            <h1>Layout</h1>
-            <Link to="/auth/register">Register</Link>
-            <br />
-            <Link to="/auth/login">Login</Link>
-            <Outlet />
+        <div className="flex">
+           <Sidebar />
+           <main className="flex-1">
+                <Outlet />
+           </main>
+            <Resume />
         </div>
     )
 }
