@@ -6,16 +6,17 @@ export default function Sidebar(){
         <div className="md:w-72">
             <div className="p-2">
                 <img 
-                    src="../img/logo.png" 
+                    src="../img/logo-01.png" 
                     alt="Pizzaria foto" 
                     className="w-80"
                 />
             </div>
 
             <div className="mt-4">
-                <h1 className="text-2xl text-center p-2">Explore our categories</h1>
+                <h1 className="text-2xl text-center p-2">Todas as categorias</h1>
                 {categories.map( category => (
                     <Category 
+                        key={category.id}
                         category = {category}
                     />
                 ))}

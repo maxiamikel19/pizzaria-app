@@ -2,19 +2,34 @@
 
     const categories = [
       {
+        "id": 5,
+        "name": "Sorvete",
+        "foto": "sorvete.jpg"
+      },
+      {
+        "id": 4,
+        "name": "Cachorro quente",
+        "foto": "cachorro-quente.jpeg"
+      },
+      {
         "id": 3,
         "name": "Pastel",
-        "foto": "icon"
+        "foto": "pastel-carne.jpg"
       },
       {
         "id": 2,
         "name": "Café",
-        "foto": "cafe"
+        "foto": "cafe-caramelo.jpg"
       },
       {
         "id": 1,
         "name": "Pizza",
-        "foto": "pizza"
+        "foto": "pizza-calableza.jpg"
+      },
+      {
+        "id": 1,
+        "name": "Chá",
+        "foto": "cafe-preto.jpg"
       }
     ]
   export {

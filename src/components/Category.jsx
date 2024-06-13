@@ -3,7 +3,7 @@ export default function Category({category}){
     return (
         <div className="p-2 items-center gap-4 w-full hover:bg-rose-600 flex border cursor-pointer">
             <img 
-                src={`/img/${category.foto}.png`}
+                src={`/img/${category.foto}`}
                 alt="Category icon"
                 className="w-12"
             />
