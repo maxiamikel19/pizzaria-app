@@ -1,6 +1,10 @@
 import { moneyFormatter } from "../helpers"
+import usePizzaria from "../hooks/usePizzaria"
 
 export default function Product({product}){
+
+    const {handlerClickModal, handleSetProduct} = usePizzaria()
+
     return (
         <div className="border p-3 shadow bg-white">
            <img 
@@ -17,6 +21,11 @@ export default function Product({product}){
             <button 
                 type="button"
                 className="text-center bg-rose-600 w-full mt-4 p-3 font-bold truncate  text-white rounded"
+                onClick={() => {
+                    handlerClickModal();
+                    handleSetProduct(product);
+                    }
+                }
             >
                 Escolher
             </button>

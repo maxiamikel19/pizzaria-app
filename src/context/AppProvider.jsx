@@ -8,11 +8,22 @@ const AppProvider = ({children}) =>{
 
     const [categories, setCategories] = useState(categoryList);
     const [selectedCategory, setSelectedCategory] = useState(categories[0])
+    const [modal, setModal] = useState(false)
+    const [product, setProduct] = useState({})
 
     const handleClickCategory  = (id) => {
         const category = categories.filter(category => category.id === id)[0]
         setSelectedCategory(category)
         //console.log(category)
+    }
+
+    const handlerClickModal = () =>{
+        setModal(!modal )
+    }
+
+    const handleSetProduct = product =>{
+        setProduct(product)
+       // console.log(product)
     }
     
     return(
@@ -20,7 +31,11 @@ const AppProvider = ({children}) =>{
             value={{
                 categories,
                 selectedCategory,
-                handleClickCategory
+                handleClickCategory,
+                modal,
+                handlerClickModal,
+                product,
+                handleSetProduct
             }}
         >{children}</AppContext.Provider>
     )
