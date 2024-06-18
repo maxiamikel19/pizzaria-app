@@ -1,9 +1,8 @@
 import { categories } from "../data/categories"
-import { Link } from "react-router-dom"
 import Category from "./Category"
 export default function Sidebar(){
     return (
-        <div className="md:w-72">
+        <aside className="md:w-72">
             <div className="p-2">
                 <img 
                     src="../img/logo-01.png" 
@@ -30,6 +29,6 @@ export default function Sidebar(){
                     Cancel Order
                 </button>
             </div>
-        </div>
+        </aside>
     )
 }

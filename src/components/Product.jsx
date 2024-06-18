@@ -6,7 +6,7 @@ export default function Product({product}){
            <img 
             src={`../img/${product.foto}`} 
             alt={`Image ${product.name}`} 
-            className="w-full h-36"
+            className="w-full h-1/2"
         />
         <div className="p-5">
             <h2 className="text-lg font-bold font-mono">{product.name}</h2>

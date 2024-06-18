@@ -1,6 +1,12 @@
 import { products } from "../data/product"
 import Product from "../components/Product"
+import usePizzaria from "../hooks/usePuzzaria"
+
+
 export default function Home(){
+
+    const {test} = usePizzaria()
+    console.log(test)
     return (
         <>
             <h1 className="text-2xl font-black">Productos</h1>
