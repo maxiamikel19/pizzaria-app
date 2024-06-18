@@ -1,15 +1,15 @@
-import { products } from "../data/product"
+import { products as data } from "../data/product"
 import Product from "../components/Product"
-import usePizzaria from "../hooks/usePuzzaria"
+import usePizzaria from "../hooks/usePizzaria"
 
 
 export default function Home(){
 
-    const {test} = usePizzaria()
-    console.log(test)
+    const {selectedCategory} = usePizzaria()
+    const products = data.filter(product => product.category_id === selectedCategory.id)
     return (
         <>
-            <h1 className="text-2xl font-black">Productos</h1>
+            <h1 className="text-2xl font-black">Productos :{selectedCategory.name}</h1>
             <p className="text-lg">Selecione e monte seu pedido</p>
             
             <div className="grid gap-4 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">

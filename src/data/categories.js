@@ -22,7 +22,7 @@
         "foto": "cafe-caramelo.jpg"
       },
       {
-        "id": 1,
+        "id": 6,
         "name": "Pizza",
         "foto": "pizza-calableza.jpg"
       },
