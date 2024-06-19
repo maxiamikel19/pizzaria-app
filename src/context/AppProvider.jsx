@@ -1,6 +1,9 @@
 import { createContext, useState } from "react";
 import { categories as categoryList } from "../data/categories"
 
+import { toast } from "react-toastify"
+import 'react-toastify/ReactToastify.css'
+
 
 const AppContext = createContext();
 
@@ -31,8 +34,10 @@ const AppProvider = ({children}) =>{
         if(order.some(orderState => orderState.id === product.id)){
             const updatedOrder = order.map(orderState => orderState.id === product.id ? product : orderState)
             setOrder(updatedOrder)
+            toast('Produto editado com sucesso')
         }else{
             setOrder([...order, product])
+            toast('Produto adicionado ao carrinho')
         }
     }
     return(

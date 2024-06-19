@@ -4,6 +4,7 @@ import Sidebar from "../components/Sidebar"
 import Resume from "../components/Resume"
 import usePizzaria from "../hooks/usePizzaria"
 import ProductModal from "../components/ProductModal"
+import { ToastContainer } from "react-toastify"
 
 
  Modal.setAppElement('#root')
@@ -27,6 +28,8 @@ export default function Layout(){
                     <ProductModal />
                 </Modal>
             )}
+
+            <ToastContainer />
         </>
     )
 }
