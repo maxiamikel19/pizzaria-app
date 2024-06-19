@@ -1,21 +1,26 @@
+import { moneyFormatter } from "../helpers";
+import usePizzaria from "../hooks/usePizzaria";
+
 export default function ProductResume({product}){
     //console.log(product)
+    const {handleEditarProductOrderQuantity, handleDeleteProductOrder} = usePizzaria();
     return (
         <div className="space-y-1 p-4 border-b-2">
           <div className="space-y-2 pb-10">
             <p className="text-sm font-normal">Produto: {product.name}</p>
             <p className="text-sm font-noemal ">QTD: {product.quantity}</p>
             <p className="text-sm font-noemal text-amber-500">
-              Precio: {product.price}
+              Precio: {moneyFormatter(product.price)}
             </p>
             <p className="text-lg text-gray-700">
-              Subtotal: {product.price * product.quantity}
+              Subtotal: { moneyFormatter(product.price * product.quantity)}
             </p>
           </div>
     
           <div className="flex justify-around gap-2 pb-4">
             <button
               type="button"
+              onClick={() => handleEditarProductOrderQuantity(product.id)}
               className="bg-sky-700 p-2 text-white rounded-md font-bold uppercase shadow-md text-center"
             >
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-4">
@@ -25,6 +30,7 @@ export default function ProductResume({product}){
             </button>
             <button
               type="button"
+              onClick={() => handleDeleteProductOrder(product.id)}
               className="bg-red-700 p-2 text-white rounded-md font-bold uppercase shadow-md text-center"
             >
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-4">
