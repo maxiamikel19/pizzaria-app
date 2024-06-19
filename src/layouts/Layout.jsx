@@ -5,17 +5,6 @@ import Resume from "../components/Resume"
 import usePizzaria from "../hooks/usePizzaria"
 import ProductModal from "../components/ProductModal"
 
-const customStyles = {
-    content: {
-      top: '50%',
-      left: '50%',
-      right: 'auto',
-      bottom: 'auto',
-      marginRight: '-50%',
-      transform: 'translate(-50%, -50%)',
-      with: '50%'
-    },
-  };
 
  Modal.setAppElement('#root')
 export default function Layout(){
@@ -34,7 +23,7 @@ export default function Layout(){
                 <Resume />
             </div>
             {modal &&(
-                <Modal isOpen={modal} style={{customStyles}}>
+                <Modal isOpen={modal}  className="w-1/2 h-auto flex m-auto bg-white p-8 mt-7 border border-gray-500 rounded-md">
                     <ProductModal />
                 </Modal>
             )}
