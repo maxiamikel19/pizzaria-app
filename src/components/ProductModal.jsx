@@ -1,11 +1,22 @@
 import usePizzaria from "../hooks/usePizzaria"
 import { moneyFormatter } from "../helpers"
-import { useState } from "react"
+import { useState, useEffect } from "react"
+
 
 export default function ProductModal(){
 
-    const {product, handlerClickModal} = usePizzaria()
+    const {product, handlerClickModal, handleAddProduct, order} = usePizzaria()
     const [quantity, setQuantity] = useState(1)
+    const [edit, setEdit] = useState(false)
+
+    useEffect(() =>{
+        if(order.some(orderState => orderState.id === product.id)){
+            const produtEdit = order.filter(orderState => orderState.id === product.id)[0]
+            setQuantity(produtEdit.quantity)
+            setEdit(true)
+        }
+    },[order]
+    )
 
     const plusQuantity = () => {
         if(quantity == 10){
@@ -29,7 +40,7 @@ export default function ProductModal(){
             </div>
             <div className="md:w-2/3">
                 <div className="flex justify-end" onClick={handlerClickModal}>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6 cursor-pointer">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
                     </svg>
                 </div>
@@ -52,7 +63,7 @@ export default function ProductModal(){
                         </svg>
                     </button> 
                         
-                    <p className="text-amber-500 font-serif"> {quantity} </p>
+                    <p className="text-amber-500 font-serif font-bold"> {quantity} </p>
 
                     <button type="button" className="text-sm ml-3" onClick={() => minusQuantity()}>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
@@ -60,9 +71,13 @@ export default function ProductModal(){
                         </svg>
                     </button>
                  </div>
-              
-                <button className="text-lg font-normal cursor-pointer truncate rounded-xl mt-10 flex bg-rose-500 hover:bg-rose-700 pt-3 pb-3 pl-5 pr-5 text-center" type="button">
-                    Adicionar no carrinho
+            
+                <button 
+                    className="text-center bg-rose-600 w-full mt-4 p-3 font-bold truncate  text-white rounded"
+                    type="button"
+                    onClick={() => {handleAddProduct({quantity,...product }), handlerClickModal()}}
+                >
+                    {edit ? 'Salvar' : ' Adicionar no carrinho'}
                 </button>
             </div>
         </div>
